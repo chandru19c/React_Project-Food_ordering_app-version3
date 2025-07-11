@@ -1,15 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
 import resList from "../utils/mockData";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser, setUserName } = useContext(UserContext);
   useEffect(() => {
     fetchData().catch((err) => {
       console.log(err);
@@ -69,6 +72,14 @@ const Body = () => {
         >
           Search
         </button>
+
+        <input
+          className="mt-2 p-2 bg-blue-500 m-2 rounded-xl cursor-pointer"
+          text={loggedInUser.name}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        />
       </div>
       <div className="restaurant-container flex flex-wrap">
         {filteredListOfRestaurant.map((restaurant) => (
