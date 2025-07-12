@@ -5,11 +5,13 @@ import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
 import resList from "../utils/mockData";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { OpenedRestaurant } from "./RestaurantCard";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+  const RestaurantCardOpened = OpenedRestaurant(RestaurantCard);
   useEffect(() => {
     fetchData().catch((err) => {
       console.log(err);
@@ -76,7 +78,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.isOpen ? (
+              <RestaurantCardOpened resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
