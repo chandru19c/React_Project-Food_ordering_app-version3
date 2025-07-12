@@ -8,7 +8,7 @@ const RestaurantCategory = ({
   index,
 }) => {
   //const [showItem, setShowItem] = useState(false);
-  console.log(showIndex);
+  //console.log(showIndex);
   const handleShowIem = () => {
     // setShowItem(!showItem);
     setShowIndex();
