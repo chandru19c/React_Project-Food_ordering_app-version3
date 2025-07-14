@@ -24,8 +24,10 @@ const AppLayout = () => {
   }, []);
   return (
     <div className="p-0.5">
-      <Header />
-      <Outlet />
+      <Provider store={appStore}>
+        <Header />
+        <Outlet />
+      </Provider>
     </div>
   );
 };

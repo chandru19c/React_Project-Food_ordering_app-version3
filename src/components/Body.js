@@ -5,22 +5,16 @@ import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
 import resList from "../utils/mockData";
 import useOnlineStatus from "../utils/useOnlineStatus";
-<<<<<<< HEAD
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
-=======
 import { OpenedRestaurant } from "./RestaurantCard";
->>>>>>> accordion
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
-<<<<<<< HEAD
   const { loggedInUser, setUserName } = useContext(UserContext);
-=======
   const RestaurantCardOpened = OpenedRestaurant(RestaurantCard);
->>>>>>> accordion
   useEffect(() => {
     fetchData().catch((err) => {
       console.log(err);
@@ -81,13 +75,13 @@ const Body = () => {
           Search
         </button>
 
-        <input
+        {/* <input
           className="mt-2 p-2 bg-blue-500 m-2 rounded-xl cursor-pointer"
           text={loggedInUser.name}
           onChange={(e) => {
             setUserName(e.target.value);
           }}
-        />
+        /> */}
       </div>
       <div className="restaurant-container flex flex-wrap">
         {filteredListOfRestaurant.map((restaurant) => (
