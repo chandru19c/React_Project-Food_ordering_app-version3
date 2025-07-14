@@ -25,8 +25,14 @@ const AppLayout = () => {
   return (
     <div className="p-0.5">
       <Provider store={appStore}>
-        <Header />
-        <Outlet />
+        <UserContext.Provider value={{ loggedInUser: { name: "mutu Swami" } }}>
+          <Header />
+        </UserContext.Provider>
+        <UserContext.Provider
+          value={{ loggedInUser: { name: userName }, setUserName }}
+        >
+          <Outlet />
+        </UserContext.Provider>
       </Provider>
     </div>
   );
