@@ -5,14 +5,22 @@ import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
 import resList from "../utils/mockData";
 import useOnlineStatus from "../utils/useOnlineStatus";
+<<<<<<< HEAD
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
+=======
+import { OpenedRestaurant } from "./RestaurantCard";
+>>>>>>> accordion
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
+<<<<<<< HEAD
   const { loggedInUser, setUserName } = useContext(UserContext);
+=======
+  const RestaurantCardOpened = OpenedRestaurant(RestaurantCard);
+>>>>>>> accordion
   useEffect(() => {
     fetchData().catch((err) => {
       console.log(err);
@@ -87,7 +95,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.isOpen ? (
+              <RestaurantCardOpened resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

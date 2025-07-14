@@ -18,4 +18,15 @@ const RestaurantCard = ({ resData }) => {
   );
 };
 
+export const OpenedRestaurant = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="bg-amber-400 p-2 m-2 absolute rounded">OPEN</label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;
