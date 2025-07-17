@@ -19,13 +19,13 @@ const Contact = lazy(() => import("./src/components/Contact"));
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
   useEffect(() => {
-    const data = { name: "elon hunk" };
+    const data = { name: "Neil Armstrong" };
     setUserName(data.name);
   }, []);
   return (
     <div className="p-0.5">
       <Provider store={appStore}>
-        <UserContext.Provider value={{ loggedInUser: { name: "mutu Swami" } }}>
+        <UserContext.Provider value={{ loggedInUser: { name: "Hari Krishnan" } }}>
           <Header />
         </UserContext.Provider>
         <UserContext.Provider

@@ -9,11 +9,12 @@ const ItemList = ({ items }) => {
   };
 
   const cartItems = useSelector((store) => store.cart.items);
- 
+
   return (
     <div>
       {items.map((item) => (
         <div
+          data-testid="foodItem"
           key={item.card.info.id}
           className="flex justify-between m-2 p-2 bg-gray-50"
         >
@@ -24,7 +25,7 @@ const ItemList = ({ items }) => {
           <div className="w-2/12">
             <button
               className="bg-lime-600 p-1 m-1 absolute cursor-pointer"
-              onClick={()=>hangleAddItem(item)}
+              onClick={() => hangleAddItem(item)}
             >
               Add+
             </button>

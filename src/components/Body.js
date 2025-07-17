@@ -3,10 +3,10 @@ import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_API } from "../utils/constants";
-import resList from "../utils/mockData";
+
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
-import { useContext } from "react";
+
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
@@ -54,7 +54,7 @@ const Body = () => {
         >
           Top Restaurants
         </button>
-        <input
+        <input data-testid="searchInput"
           className="mt-2 p-2 bg-orange-500 m-2 rounded-xl cursor-pointer"
           text={searchText}
           onChange={(e) => {

@@ -29,15 +29,16 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li className="m-2 p-2">
-            <Link to="/cart">Cart-({cartItems.length})items</Link>
+            <Link to="/cart">Cart-({cartItems.length} items)</Link>
           </li>
-          <li
-            className="m-2 p-2 cursor-pointer"
-            onClick={() => {
-              btnName == "Login" ? setBtnName("Logout") : setBtnName("Login");
-            }}
-          >
-            {btnName}
+          <li className="m-2 p-2 cursor-pointer">
+            <button
+              onClick={() => {
+                btnName == "Login" ? setBtnName("Logout") : setBtnName("Login");
+              }}
+            >
+              {btnName}
+            </button>
           </li>
           <li className="m-2 p-2">{loggedInUser.name}</li>
         </ul>

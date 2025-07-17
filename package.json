@@ -9,9 +9,10 @@
   "author": "Chandra prasad",
   "type": "commonjs",
   "scripts": {
-    "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
@@ -22,5 +23,19 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.6.3",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
+    "jest-fixed-jsdom": "^0.0.9",
+    "text-encoding": "^0.7.0"
   }
 }
